@@ -82,4 +82,7 @@ En AWS la aplicación esta desplegada en dos instancias de EC2 donde por medio d
    ```
    http://ec2-54-167-254-55.compute-1.amazonaws.com:4567/
    ```
-   
+9. video
+    https://github.com/NicolasCastro9/AREP_PARCIAL2/assets/98556822/e37a8877-0c6a-49b1-9f94-25d66e071453
+
+
