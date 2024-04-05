@@ -48,5 +48,38 @@ En AWS la aplicación esta desplegada en dos instancias de EC2 donde por medio d
 6. Probamos las funciones de busqueda
    ![image](https://github.com/NicolasCastro9/AREP_PARCIAL2/assets/98556822/c8657bde-1370-4d8a-950e-57b12a3efc68)
 
+# DESPLIEGUE EN AWS
 
+1. Creamos 3 instancias EC2, 1 para el proxy y 2 para el mathserver, todas en el mismo grupo de seguridad y con la misma llave
+   ![image](https://github.com/NicolasCastro9/AREP_PARCIAL2/assets/98556822/435c449d-7a11-4563-b2b6-2b39938d1b45)
+2. Ingresamos a cada instancia por medio de la consola de comandos
+   ![image](https://github.com/NicolasCastro9/AREP_PARCIAL2/assets/98556822/61aa4879-55c7-4eda-a350-3b7093c20202)
+3. en cada una de las instancias instalamos git, maven y java con el comando
+   ```
+   sudo yum install git
+   sudo yum install java
+   sudo yum install maven
+   ```
+4. en cada instancia clonamos el repositorio git
+   ```
+   git clone https://github.com/NicolasCastro9/AREP_PARCIAL2.git
+   ```
+5. en cada instancia ingrsamos al directorio del pom e instalamos las dependencias
+   ```
+   mvn clean install
+   ```
+   ![image](https://github.com/NicolasCastro9/AREP_PARCIAL2/assets/98556822/9f8a7f60-a83f-4ae7-bc3e-7ee66fb98550)
+6. en la instancia del proxy ingresamos el siguiente comando para ejecutar el servicio proxy, remplasamos el localhost con la ip publica de las otras 2 instancias
+   java -cp "target/classes;target/dependency/*" com.edu.examen.ProxyServer
+   ```
+   java -cp "target/classes:target/dependency/*" com.edu.examen.ProxyServer 172.31.34.166:35001 172.31.32.247:35002
+   ```
+7. en las otras dos instancias ingresamos el comando para ejecutar el servicio de las busquedas
+   ```
+   java -cp "target/classes:target/dependency/*" com.edu.examen.MathServer
+   ```
+8. ingresamos con el DNS publico de la maquina proxy
+   ```
+   http://ec2-54-167-254-55.compute-1.amazonaws.com:4567/
+   ```
    
