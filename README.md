@@ -83,6 +83,18 @@ En AWS la aplicación esta desplegada en dos instancias de EC2 donde por medio d
    http://ec2-54-167-254-55.compute-1.amazonaws.com:4567/
    ```
 9. video
+   
     https://github.com/NicolasCastro9/AREP_PARCIAL2/assets/98556822/e37a8877-0c6a-49b1-9f94-25d66e071453
 
+# CONSTRUIDO CON
+Java: plataforma informática de lenguaje de programación
 
+SparkJava: microframework web para Java que facilita la creación de aplicaciones web simples y rápidas
+
+Maven: framework de gestión de proyectos de software
+
+# AUTOR
+ Nicolas Castro Jaramillo
+
+# LICENCIA
+Este proyecto está bajo la licencia MIT
