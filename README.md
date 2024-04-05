@@ -72,7 +72,7 @@ En AWS la aplicación esta desplegada en dos instancias de EC2 donde por medio d
 6. en la instancia del proxy ingresamos el siguiente comando para ejecutar el servicio proxy, remplasamos el localhost con la ip publica de las otras 2 instancias
    java -cp "target/classes;target/dependency/*" com.edu.examen.ProxyServer
    ```
-   java -cp "target/classes:target/dependency/*" com.edu.examen.ProxyServer 172.31.34.166:35001 172.31.32.247:35002
+   java -cp "target/classes:target/dependency/*" com.edu.examen.ProxyServer 172.31.34.166:35000 172.31.32.247:35000
    ```
 7. en las otras dos instancias ingresamos el comando para ejecutar el servicio de las busquedas
    ```
