@@ -17,14 +17,12 @@ public class HttpConnectionExample {
 
     public static String connection(String path,String valuelist,String value) throws IOException {
 
-        URL obj = new URL(GET_URL.get(currentserver) + path + "?list=" + valuelist + "?value=" + value);
+        URL obj = new URL(GET_URL.get(currentserver) + path + "?list=" + valuelist + "&value=" + value);
         rotateRoundRobinServer();
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
         StringBuffer response = new StringBuffer();
-        
-        //The following invocation perform the connection implicitly before getting the code
         int responseCode = con.getResponseCode();
         System.out.println("GET Response Code :: " + responseCode);
         

@@ -10,20 +10,8 @@ public class ProxyServer {
     staticFiles.location("/public");
     HttpConnectionExample.setURLS(args);
     get("hello", (req, res) -> "Hello Docker!");
-    get("linearSeach", (req, res) -> {
-      String valuelist = req.queryParams("valuelist");
-      String value = req.queryParams("value");
-      return HttpConnectionExample.connection("linearSeach", valuelist, value);
-    });
-    get("binarySearch", (req, res) -> {
-      String valuelist = req.queryParams("valuelist");
-      String value = req.queryParams("value");
-      return HttpConnectionExample.connection("binarySearch", valuelist,value);
-    });
-    
-    
-    
-    
+    get("linearSearch", (req, res) -> HttpConnectionExample.connection("linearSearch", req.queryParams("list"), req.queryParams("value")));
+    get("binarySearch", (req, res) -> HttpConnectionExample.connection("binarySearch", req.queryParams("list"), req.queryParams("value")));
   }
 
   private static int getPort() {

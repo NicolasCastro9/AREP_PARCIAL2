@@ -6,52 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-
-
     <h1>linearSearch</h1>
-    <form action="/hello">
+    <form action = "/hello">
       <label for="val_list">List:</label><br />
-      <input type="text" id="val_linearSearch_list" name="val_linearSearch_list" value="" /><br />
+      <input type="text" id="val_linearSearch_list" name="valuelist" placeholder="cadena de numeros separadas por comas" /><br />
       <label for="val_num">Numb:</label><br />
-      <input type="text" id="val_linearSearch" name="val_linearSearch" value="" /><br />
+      <input type="text" id="val_linearSearch" name="value" value="" /><br />
       <input type="button" value="Check linearSearch" onclick="linearSearch()" />
     </form>
     <div id="getlinearSearch"></div>
 
     <h1>binarySearch</h1>
-    <form action="/hello">
+    <form>
       <label for="val_list">List:</label><br />
-      <input type="text" id="val_binarySearch_list" name="val_binarySearch_list" value="" /><br />
+      <input type="text" id="val_binarySearch_list" name="valuelist" value="" /><br />
       <label for="val_num">Numb:</label><br />
-      <input type="text" id="val_linearSearch" name="val_binarySearch" value="" /><br />
+      <input type="text" id="val_binarySearch" name="value" value="" /><br />
       <input type="button" value="Check binarySearch" onclick="binarySearch()" />
     </form>
     <div id="getbinarySearch"></div>   
 
     <script>
-
-
-        function linearSearch() {
+      function linearSearch() {
         let list = document.getElementById("val_linearSearch_list").value;
         let value = document.getElementById("val_linearSearch").value;
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function () {
-            document.getElementById("getlinearSearch").innerHTML = this.responseText;
+          document.getElementById("getlinearSearch").innerHTML = this.responseText;
         };
         xhttp.open("GET", "/linearSearch?list=" + list + "&value=" + value);
         xhttp.send();
-        }
+      }
 
-        function binarySearch() {
-        let number = document.getElementById("val_binarySearch").value;
+      function binarySearch() {
+        let list = document.getElementById("val_binarySearch_list").value;
+        let value = document.getElementById("val_binarySearch").value;
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function () {
-            document.getElementById("getbinarySearch").innerHTML = this.responseText;
+          document.getElementById("getbinarySearch").innerHTML = this.responseText;
         };
-        xhttp.open("GET", "/Binarysearch?list=" + list + "&value=" + value);
+        xhttp.open("GET", "/binarySearch?list=" + list + "&value=" + value);
         xhttp.send();
-        }
-
+      }
     </script>
   </body>
 </html>
